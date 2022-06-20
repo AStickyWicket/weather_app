@@ -4,8 +4,10 @@ import Form from 'react-bootstrap/Form';
 import {Button,Col, Container, Row} from "react-bootstrap";
 import Image from 'react-bootstrap/Image'
 
-const GetForeCastCards = ({weatherData}) => {
-    let currentDate = new Date(weatherData.list[0].dt * 1000).toLocaleDateString("en-US", )
+
+
+const GetForeCastCards = ({weatherData, currentDate}) => {
+    currentDate = new Date(currentDate * 1000).toLocaleDateString('en-Us')
     let forecastCards = [];
     weatherData.list.forEach(function (item) {
         if (new Date(item.dt * 1000).toLocaleDateString("en-US", ) !== currentDate) {
@@ -80,7 +82,6 @@ function CreateWeatherForecastCard(weatherData) {
     const weatherDescription = () => {
         return weatherData.weather[0].description.charAt(0).toUpperCase() + weatherData.weather[0].description.slice(1)
     }
-    console.log(weatherData)
     return (
         <Card id='ForecastCards'>
             <Card.Header>{currentDate.toLocaleDateString('en-US', {weekday: 'long'})}</Card.Header>

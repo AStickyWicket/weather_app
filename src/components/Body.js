@@ -37,7 +37,7 @@ const Body = () => {
             {(typeof currentWeatherData.main != 'undefined') && (typeof forecastWeatherData.list != 'undefined') ? (
                 <div>
                     <GetCurrentWeatherCard weatherData={currentWeatherData} triggerParentUpdate={handleCityChange}/>
-                    <GetForeCastCards weatherData={forecastWeatherData}/>
+                    <GetForeCastCards weatherData={forecastWeatherData} currentDate ={currentWeatherData.dt}/>
                 </div>
             ) : (
                 <div>Invalid City Or Fetch Statement Has Encountered Problems Please Refresh</div>
